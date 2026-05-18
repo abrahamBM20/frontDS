@@ -43,5 +43,5 @@ jobs:
               "docker stop proyecto-frontend || true",
               "docker rm proyecto-frontend || true",
               
-              "docker run -d --name proyecto-frontend -p 3000:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest"
+              "docker run -d --name proyecto-frontend -p 80:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest"
             ]'
