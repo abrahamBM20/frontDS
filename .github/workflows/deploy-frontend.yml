@@ -27,7 +27,7 @@ jobs:
 
       - name: Construir y Subir Frontend a ECR
         run: |
-          docker build -t proyecto-frontend ./front_despacho
+          docker build -t proyecto-frontend .
           docker tag proyecto-frontend:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest
 
