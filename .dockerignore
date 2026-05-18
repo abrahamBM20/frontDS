@@ -1,0 +1,11 @@
+# .dockerignore files - agregar a cada repositorio
+
+# Frontend .dockerignore
+node_modules/
+npm-debug.log
+dist/
+.git
+.gitignore
+.env
+.env.local
+README.md
