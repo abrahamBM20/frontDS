@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout del código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar credenciales AWS Academy
         uses: aws-actions/configure-aws-credentials@v2
@@ -42,5 +42,6 @@ jobs:
               "docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest",
               "docker stop proyecto-frontend || true",
               "docker rm proyecto-frontend || true",
+              
               "docker run -d --name proyecto-frontend -p 3000:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest"
             ]'
