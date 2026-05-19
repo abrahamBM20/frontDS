@@ -36,12 +36,12 @@ jobs:
           aws ssm send-command \
             --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
-            --comment "desplegando contenedor Frontend en puerto 3000" \
+            --comment "desplegando contenedor Frontend en puerto 80" \
             --parameters 'commands=[
               "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com",
               "docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest",
               "docker stop proyecto-frontend || true",
               "docker rm proyecto-frontend || true",
               
-              "docker run -d --name proyecto-frontend -p 80:3000 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest"
+              "docker run -d --name proyecto-frontend -p 80:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/proyecto-frontend:latest"
             ]'
